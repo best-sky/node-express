@@ -1,0 +1,85 @@
+<table class="tableList_table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th *ngFor="let item of theader; let i=index" [height]='item.width'>
+                {{item.value}}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--表格类容-->
+        <tr *ngFor="let item of tableDatas; let i=index">
+            <td>
+                {{item.createAt}}
+            </td>
+            <td>
+                {{item.userName}}
+            </td>
+            <td>
+                {{item.nickName}}
+            </td>
+
+            <td>
+                {{item.sex==1?"男":"女"}}
+            </td>
+            <td>
+                {{item.power==1?"超级管理员":"普通管理员"}}
+            </td>
+            <td>
+                {{item.email}}
+            </td>
+            <td>
+                {{item.cold==1?"正常":"被冻结"}}
+            </td>
+            <td>
+                <button class="edit" *ngIf='power==1||item.userId==userId' (click)="emitFun(item)">编辑</button>
+                <button class="del" *ngIf="power==1||item.userId==userId" (click)="delUser(item.userId)">删除</button>
+                <button class="cold" *ngIf="power==1" (click)="frost(item.userId)">冻结</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<tfoot>
+    <tr>
+
+        <td class="paging_class">
+            <div>
+                <ul class="pageTheLi">
+                    <li>
+                        <span>
+              共{{Page.lastPage}}页
+            </span>
+                    </li>
+                    <li (click)="first()">
+                        <a>
+                            <img src="../../../assets/first.png">
+                        </a>
+                    </li>
+                    <li (click)="prev()">
+                        <a>
+                            <img src="../../../assets/prev.png">
+                        </a>
+                    </li>
+                    <li>
+                        <span>{{Page.pagination}}</span>
+                    </li>
+                    <li (click)="next()">
+                        <a>
+                            <img src="../../../assets/next.png">
+                        </a>
+                    </li>
+                    <li (click)="last()">
+                        <a>
+                            <img src="../../../assets/last.png">
+                        </a>
+                    </li>
+                    <li>
+                        <span>
+              跳到<input type="text" (change)="skip()" [(ngModel)]="Page.pageStart" />页
+            </span>
+                    </li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+</tfoot>

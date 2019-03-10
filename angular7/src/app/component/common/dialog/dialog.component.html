@@ -1,0 +1,94 @@
+<!-- 添加 -->
+
+<div class="alert_warp" (click)="colse($event)" *ngIf="isShow==1">
+    <div class="alert_box">
+        <header>
+            <h3>{{isShow==1?"添加管理员":"编辑管理员"}}</h3>
+        </header>
+        <main>
+            <div>
+                <label for="用户名">账号:</label>
+                <el-input placeholder="请输入用户名(手机号)" icon="search" [(ngModel)]="fromData.userName">
+                </el-input>
+            </div>
+            <div>
+                <label for="昵称">昵称:</label>
+                <el-input placeholder="请输入昵称" icon="search" [(ngModel)]="fromData.nickName">
+                </el-input>
+            </div>
+            <div>
+                <label for="密码">密码:</label>
+                <el-input placeholder="请输入密码" icon="search" [(ngModel)]="fromData.loginPass">
+                </el-input>
+            </div>
+            <div>
+                <label for="
+                    性别">性别:</label>
+                <el-select [(model)]="fromData.sex" [clearable]="true">
+                    <el-option *ngFor="let item of [{value: '1',label: '男' },
+    { value: '2', label: '女' }]" [label]="item.label" [value]="item.value">
+                    </el-option>
+                </el-select>
+            </div>
+            <div>
+                <label for="
+                    性别">权限:</label>
+                <el-select [(model)]="fromData.power" [clearable]="true">
+                    <el-option *ngFor="let item of [{value: '1',label: '超级管理员' },
+    { value: '2', label: '普通管理员' }]" [label]="item.label" [value]="item.value">
+                    </el-option>
+                </el-select>
+            </div>
+            <div>
+                <label for="用户名">邮箱:</label>
+                <el-input placeholder="请输入安全邮箱" icon="search" [(ngModel)]="fromData.email">
+                </el-input>
+            </div>
+        </main>
+        <footer>
+            <el-button size="mini" type="info" (click)="isShow=0">取消</el-button>
+            <el-button size="mini" type="primary" (click)="addUser()">确认</el-button>
+        </footer>
+    </div>
+</div>
+<!-- 编辑 -->
+<div class="alert_warp" (click)="colse($event)" *ngIf="isShow==2">
+    <div class="alert_box">
+        <header>
+            <h3>{{isShow==1?"添加管理员":"编辑管理员"}}</h3>
+        </header>
+        <main>
+            <div>
+                <label for="用户名">账号:</label>
+                <span>{{fromData.userName}}</span>
+            </div>
+            <div>
+                <label for="昵称">昵称:</label>
+                <el-input placeholder="请输入昵称" icon="search" [(ngModel)]="fromData.nickName">
+                </el-input>
+            </div>
+            <div>
+                <label for="
+                          性别">性别:</label>
+                <el-select [(model)]="fromData.sex" [clearable]="true">
+                    <el-option *ngFor="let item of [{value: '1',label: '男' },
+          { value: '2', label: '女' }]" [label]="item.label" [value]="item.value">
+                    </el-option>
+                </el-select>
+            </div>
+            <div>
+                <label for="
+                          性别">权限:</label>
+                <span>{{fromData.power==1?"超级管理员":"普通管理员"}}</span>
+            </div>
+            <div>
+                <label for="用户名">邮箱:</label>
+                <span>{{fromData.email}}</span>
+            </div>
+        </main>
+        <footer>
+            <el-button size="mini" type="info" (click)="isShow=0">取消</el-button>
+            <el-button size="mini" type="primary" (click)="updateUser()">确认</el-button>
+        </footer>
+    </div>
+</div>

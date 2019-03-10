@@ -1,0 +1,21 @@
+<div class="warp">
+    <div class="login_warp">
+        <h2>李洋的后台管理系统</h2>
+        <p>设置账号</p>
+        <el-input placeholder="请输入账号(手机号)" icon="view" [(ngModel)]="userName">
+        </el-input>
+        <p>设置密码</p>
+        <el-input placeholder="请输入密码" icon="view" [(ngModel)]="loginPass">
+        </el-input>
+        <p>确认密码</p>
+        <el-input placeholder="请输入密码" icon="view" [(ngModel)]="confirmPass">
+        </el-input>
+        <p>绑定邮箱</p>
+        <el-input placeholder="请输入密码" icon="message" [(ngModel)]="email">
+        </el-input>
+        <button (click)="register()">立即注册</button>
+        <footer>
+            <a [routerLink]="[ '/login' ]">返回登录页</a>
+        </footer>
+    </div>
+</div>

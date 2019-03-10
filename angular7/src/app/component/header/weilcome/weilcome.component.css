@@ -1,0 +1,48 @@
+aside {
+    width: 200px;
+    height: 100%;
+    background-color: #545c64;
+}
+
+main {
+    width: 85%;
+    position: absolute;
+    z-index: 998;
+    left: 250px;
+    top: 60px;
+}
+
+main>.describe {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+main>.top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+main>.top>.demo-chart {
+    width: 50%;
+    height: 400px;
+}
+
+main>.describe>div:nth-of-type(1) {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+main>.describe>div:nth-of-type(2) {
+    margin-left: 50px;
+}
+
+main>.describe>img {
+    width: 10rem;
+    height: 10rem;
+}

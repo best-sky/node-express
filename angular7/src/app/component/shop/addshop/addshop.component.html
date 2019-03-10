@@ -1,0 +1,58 @@
+<main>
+    <div>
+        <span>商品名称：</span>
+        <el-input [(model)]="formData.shopName" placeholder="商品名称："></el-input>
+    </div>
+    <div>
+        <span>商品标题：</span>
+        <el-input  [(model)]="formData.shopTitle" placeholder="商品标题："></el-input>
+    </div>
+    <div>
+        <span>商品描述：</span>
+        <el-input  [(model)]="formData.shopDescribe" placeholder="商品描述："></el-input>
+    </div>
+    <div>
+        <span>商品分类：</span>
+        <el-select [(model)]="formData.shopClassify" [clearable]="true">
+            <el-option *ngFor="let item of options" [label]="item.label" [value]="item.value">
+            </el-option>
+        </el-select>
+    </div>
+    <div>
+        <span>是否上架：</span>
+        <el-switch  [(model)]="formData.shopPutaway">
+        </el-switch>
+    </div>
+    <div>
+        <span>商品属性：</span>
+        <el-checkbox-group  [(model)]="formData.shopProperty">
+            <el-checkbox label="新品"></el-checkbox>
+            <el-checkbox label="热卖"></el-checkbox>
+            <el-checkbox label="推荐"></el-checkbox>
+            <el-checkbox label="包邮"></el-checkbox>
+            <el-checkbox label="不参与折扣"></el-checkbox>
+        </el-checkbox-group>
+    </div>
+    <div>
+        <span>商品价格：</span>
+        <el-input  [(model)]="formData.shopPrice.old" placeholder="原价"></el-input>
+        <el-input  [(model)]="formData.shopPrice.new" placeholder="现价"></el-input>
+    </div>
+    <div>
+        <span>商品库存：</span>
+        <el-input  [(model)]="formData.shopInventory" placeholder="商品库存："></el-input>
+    </div>
+    <div>
+        <span>商品主图：</span>
+        <div class="upload" (click)="uploadImg()">
+            <i class="el-icon-upload" *ngIf="isShow==true?true:false"></i>
+            <img [src]="avatar" *ngIf="isShow==true?false:true">
+            <input type="file" accept="image/*" capture="camcorder" (change)="handleFile($event)" class="hiddenInput"
+                #hiddenInput style="display: none;">
+        </div>
+    </div>
+    <div>
+        <el-button type="primary" (click)="addShop()">完成</el-button>
+        <!-- <el-button type="primary">主要按钮</el-button> -->
+    </div>
+</main>

@@ -1,0 +1,37 @@
+main {
+    width: 85%;
+    position: absolute;
+    z-index: 998;
+}
+
+main>div{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.upload {
+    border: 1px solid gray;
+    width: 80px;
+    height: 80px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  .upload > i {
+    font-size: 30px;
+    margin: 0 auto;
+    color: grey;
+  }
+  .upload > input {
+    display: none;
+  }
+  .upload > img {
+    width: 80px;
+    height: 80px;
+  }

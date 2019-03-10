@@ -1,0 +1,73 @@
+<table class="tableList_table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th *ngFor="let item of theader; let i=index" [height]='item.width'>
+        {{item.value}}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <!--表格类容-->
+    <tr *ngFor="let item of tableDatas; let i=index">
+      <td>
+        <img [src]="'http://localhost:3000/shop/'+item.shopImg" style="width:40px;height:40px;">
+      </td>
+      <td>{{item.shopName}}</td>
+      <td>{{item.shopName}}</td>
+      <td>{{item.shopPrice.old}}</td>
+      <td>{{item.shopInventory}}</td>
+      <td>{{item.shopPutaway=="true"?'上架':"下架"}}</td>
+      <td>{{item.shopClassify|shopKind}}</td>
+      <td>{{item.shopProperty}}</td>
+      <td>
+        <button class="edit" *ngIf='power==1' (click)="emitFun(item)">编辑</button>
+        <button class="del" *ngIf="power==1" (click)="delUser(item.shopId)">删除</button>
+        <button class="cold" *ngIf="power==1" (click)="frost(item.shopId)">冻结</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<tfoot>
+  <tr>
+
+    <td class="paging_class">
+      <div>
+        <ul class="pageTheLi">
+          <li>
+            <span>
+              共{{Page.lastPage}}页
+            </span>
+          </li>
+          <li (click)="first()">
+            <a>
+              <img src="../../../assets/first.png">
+            </a>
+          </li>
+          <li (click)="prev()">
+            <a>
+              <img src="../../../assets/prev.png">
+            </a>
+          </li>
+          <li>
+            <span>{{Page.pagination}}</span>
+          </li>
+          <li (click)="next()">
+            <a>
+              <img src="../../../assets/next.png">
+            </a>
+          </li>
+          <li (click)="last()">
+            <a>
+              <img src="../../../assets/last.png">
+            </a>
+          </li>
+          <li>
+            <span>
+              跳到<input type="text" (change)="skip()" [(ngModel)]="Page.pageStart" />页
+            </span>
+          </li>
+        </ul>
+      </div>
+    </td>
+  </tr>
+</tfoot>

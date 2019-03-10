@@ -1,0 +1,21 @@
+nav {
+    width: 100%;
+    position: absolute;
+    z-index: 999;
+}
+
+aside {
+    width: 200px;
+    height: 100%;
+    background-color: #545c64;
+}
+
+.userInfo_box {
+    width: 160px;
+}
+
+.userInfo_box>img {
+    width: 40px;
+    height: auto;
+    padding: 10px;
+}

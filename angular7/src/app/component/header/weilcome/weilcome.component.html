@@ -1,0 +1,26 @@
+<aside>
+    <el-menu model="1" class="el-menu-vertical-demo" background-color="#545c64" active-text-color="#ffd04b" text-color="#fff">
+        <el-menu-item index="0"><i class="el-icon-menu"></i>导航二</el-menu-item>
+        <el-menu-item index="1"><i class="el-icon-menu"></i>项目介绍</el-menu-item>
+    </el-menu>
+</aside>
+<main>
+    <div class="top">
+        <div echarts [options]="cakeOption" [merge]="cakeOption" class="demo-chart"></div>
+        <div echarts [options]="lineOption" class="demo-chart"></div>
+    </div>
+    <div class="describe">
+        <div><img src="http://localhost:3000/img/psb.jpg" alt=""></div>
+        <div>
+            <h2>myAngular</h2>
+            <h3>项目介绍</h3>
+            <p>我的第一个angular7项目,主要目的是巩固所学知识</p>
+            <h3>项目架构</h3>
+            <h4>前端</h4>
+            <p>angular7配合element-UI开发</p>
+            <p>涉及到angular的组件通信,路由,服务,内置指令,自定义管道以及前后台数据通信</p>
+            <h4>后端</h4>
+            <p>基于node-js的express框架开发的本地后台,采用mongondb数据库</p>
+        </div>
+    </div>
+</main>

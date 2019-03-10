@@ -1,0 +1,11 @@
+<div class="search_box">
+  <el-input placeholder="按用户名查找" icon="search" [(ngModel)]="formData.shopName" style="margin-right: 10px">
+  </el-input>
+  <el-select [(model)]="formData.shopClassify" [clearable]="true">
+    <el-option *ngFor="let item of options" [label]="item.label" [value]="item.value">
+    </el-option>
+  </el-select>
+  <el-button type="primary" (click)="getShopData()">查询</el-button>
+  <el-button type="primary" (click)="addShop()">添加</el-button>
+</div>
+<app-shop-table [getShopData]="getShopData" [tableDatas]="tableDatas" [Page]="Page" [formData]="formData"></app-shop-table>

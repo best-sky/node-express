@@ -1,0 +1,21 @@
+<aside>
+    <el-menu model="1" class="el-menu-vertical-demo" background-color="#545c64" active-text-color="#ffd04b" text-color="#fff">
+        <el-menu-item index="0"><i class="el-icon-menu"></i>导航二</el-menu-item>
+        <el-menu-item index="1"><i class="el-icon-menu"></i>用户列表</el-menu-item>
+    </el-menu>
+</aside>
+<main>
+    <div class="search_box">
+        <el-input placeholder="按用户名查找" icon="search" [(ngModel)]="formData.userName" style="margin-right: 10px">
+        </el-input>
+        <el-select [(model)]="formData.power" [clearable]="true">
+            <el-option *ngFor="let item of [{value: '1',label: '超级管理员' },
+{ value: '2', label: '普通管理员' }]" [label]="item.label" [value]="item.value">
+            </el-option>
+        </el-select>
+        <el-button type="primary" (click)="find()">查询</el-button>
+        <el-button type="primary" (click)="mydialog.open(1) ">添加</el-button>
+    </div>
+    <app-tables [tableDatas]="tableDatas" [Page]="Page" [getUserList]="getUserList"></app-tables>
+</main>
+<app-dialog #mydialog [Page]="Page" [getUserList]="getUserList"></app-dialog>
